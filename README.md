@@ -4,7 +4,17 @@ Static GitHub Pages calculator for estimating SolarEX Quartz SiO₂ and SolarEX 
 
 ## Purpose
 
-This repository contains a production-ready static web calculator for SolarEX commercial screening. It is designed to be embedded or linked from the SolarEX website and to support technical-commercial discussions with EPC teams, O&M operators, asset owners and procurement stakeholders.
+This repository contains a validated standalone static web calculator for SolarEX commercial screening. It is designed to be linked from the SolarEX website and to support technical-commercial discussions with EPC teams, O&M operators, asset owners and procurement stakeholders.
+
+## Deployment baseline
+
+Current live deployment is branch-based from:
+
+```text
+gh-pages
+```
+
+Do not reintroduce GitHub Actions Pages deployment unless deployment permissions and repository settings are fully controlled and validated.
 
 ## Data hierarchy
 
@@ -35,8 +45,33 @@ Simple payback days = CAPEX / annual value × 365
 Net value over service life = annual value × coating service life − CAPEX
 ```
 
+## GPS and currency logic
+
+When the user selects **Use GPS**, the calculator sets the project location field to:
+
+```text
+Resolving location…
+```
+
+It then requests browser GPS coordinates, reverse-geocodes the position, and displays the resolved locality, region and country where available. If reverse geocoding cannot resolve a locality, it falls back to coordinates.
+
+When a project location is entered or resolved by GPS, the calculator maps the country to the expected local currency, retrieves a EUR-based exchange rate, and displays Euro value, local-currency value and exchange-rate information where available.
+
+## Solar panel type selector
+
+The calculator includes a **Solar panel type** selector with editable specific-power presets:
+
+- Polycrystalline — default, 90 W/m²
+- Monocrystalline — 105 W/m²
+- PERC — 115 W/m²
+- TOPCon — 125 W/m²
+- Perovskites — 130 W/m²
+
+The selector sets a starting value in the editable **Panel specific power** field. Users can still override W/m² manually for validated project-specific values.
+
 ## Reference defaults
 
+- Panel type: **Polycrystalline**
 - Panel specific power: **90 W/m²**
 - Coating cost: **€2.44/m²**
 - SolarEX Quartz SiO₂ Europe reference: **10% uplift**, **5-year service life**
@@ -59,16 +94,23 @@ Net value over service life = annual value × coating service life − CAPEX
 index.html
 assets/styles.css
 assets/app.js
-404.html
+assets/favicon.svg
+README.md
 robots.txt
 sitemap.xml
 .nojekyll
-.github/workflows/deploy-pages.yml
+404.html
 ```
 
-## Deployment
+## Change-control rules
 
-GitHub Pages can deploy this site from GitHub Actions. In repository settings, select **Pages → Source → GitHub Actions** and run the `Deploy SolarEX ROI Calculator` workflow.
+When modifying the calculator:
+
+1. Change only the requested function.
+2. Avoid disturbing validated GPS, currency, PVGIS, Open-Meteo and manual fallback logic.
+3. Preserve the current visual system unless a visual redesign is explicitly requested.
+4. Validate on desktop and mobile after edits.
+5. Check location input, GPS, currency conversion, PVGIS fallback, result rendering and mobile layout.
 
 ## Contact
 
