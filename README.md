@@ -35,8 +35,27 @@ Simple payback days = CAPEX / annual value × 365
 Net value over service life = annual value × coating service life − CAPEX
 ```
 
+## Solar panel type selector
+
+The calculator includes a **Solar panel type** selector with editable specific-power presets:
+
+- Polycrystalline — default, 90 W/m²
+- Monocrystalline — 105 W/m²
+- PERC — 115 W/m²
+- TOPCon — 125 W/m²
+- Perovskites — 130 W/m²
+
+The panel type selector sets a starting W/m² value. Users can still edit the panel specific power field for a validated project-specific value.
+
+## GPS / location handling
+
+The **Use GPS** button now resolves the browser GPS coordinates into an actual location name where browser permission and public reverse-geocoding calls are available. The project-location field is populated with the resolved location name instead of only showing `GPS location`.
+
+If browser location permission is denied or unavailable, the user can still enter the project location manually.
+
 ## Reference defaults
 
+- Panel type: **Polycrystalline**
 - Panel specific power: **90 W/m²**
 - Coating cost: **€2.44/m²**
 - SolarEX Quartz SiO₂ Europe reference: **10% uplift**, **5-year service life**
