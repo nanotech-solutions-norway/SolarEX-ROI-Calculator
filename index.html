@@ -42,8 +42,9 @@
           <label for="locationQuery">Project location</label>
           <div class="input-row"><input id="locationQuery" type="text" placeholder="City, region or address" autocomplete="off"><button class="btn compact" id="locateBtn" type="button">Use GPS</button></div>
           <p class="field-note" id="locationNote">Example: Oslo, Dubai, Madrid, Riyadh, Munich, London.</p>
-          <div class="two-col"><div><label for="areaM2">Coated PV glass area (m²)</label><input id="areaM2" type="number" min="1" step="1" value="1000" required></div><div><label for="specificPower">Panel specific power (W/m²)</label><input id="specificPower" type="number" min="1" step="1" value="90" required></div></div>
-          <div class="two-col"><div><label for="energyPrice">Electricity value (€/kWh)</label><input id="energyPrice" type="number" min="0" step="0.001" value="0.289" required></div><div><label for="coating">SolarEX pathway</label><select id="coating"><option value="quartz">SolarEX Quartz — SiO₂</option><option value="titan">SolarEX Titan — TiO₂</option></select></div></div>
+          <div class="two-col"><div><label for="areaM2">Coated PV glass area (m²)</label><input id="areaM2" type="number" min="1" step="1" value="1000" required></div><div><label for="panelType">Solar panel type</label><select id="panelType"><option value="polycrystalline" selected>Polycrystalline</option><option value="monocrystalline">Monocrystalline</option><option value="perc">PERC</option><option value="topcon">TOPCon</option><option value="perovskite">Perovskites</option></select></div></div>
+          <div class="two-col"><div><label for="specificPower">Panel specific power (W/m²)</label><input id="specificPower" type="number" min="1" step="1" value="90" required></div><div><label for="energyPrice">Electricity value (€/kWh)</label><input id="energyPrice" type="number" min="0" step="0.001" value="0.289" required></div></div>
+          <div class="two-col"><div><label for="coating">SolarEX pathway</label><select id="coating"><option value="quartz">SolarEX Quartz — SiO₂</option><option value="titan">SolarEX Titan — TiO₂</option></select></div></div>
           <details class="advanced"><summary>Advanced assumptions</summary><div class="advanced-grid">
             <div><label for="gainPct">Expected yield uplift (%)</label><input id="gainPct" type="number" min="0" step="0.01" value="10"></div>
             <div><label for="coatingCost">Coating cost (€/m²)</label><input id="coatingCost" type="number" min="0" step="0.01" value="2.44"></div>
@@ -62,7 +63,7 @@
           <div class="card-head"><h3>Results</h3><span class="status-pill accent" id="sourceBadge">Awaiting calculation</span></div>
           <div class="kpi-grid"><div class="kpi"><span>Baseline production</span><strong id="baselineOut">—</strong><small>kWh/year</small></div><div class="kpi"><span>Added production</span><strong id="addedOut">—</strong><small>kWh/year</small></div><div class="kpi"><span>Annual value</span><strong id="annualValueOut">—</strong><small>€/year</small></div><div class="kpi"><span>Simple payback</span><strong id="paybackOut">—</strong><small>days</small></div></div>
           <div class="net-value"><span>Net value over selected service life</span><strong id="netValueOut">—</strong></div>
-          <table class="result-table"><tbody id="detailRows"><tr><td>Solar resource</td><td>—</td></tr><tr><td>Peak PV capacity</td><td>—</td></tr><tr><td>Coating CAPEX</td><td>—</td></tr><tr><td>Model pathway</td><td>—</td></tr></tbody></table>
+          <table class="result-table"><tbody id="detailRows"><tr><td>Solar resource</td><td>—</td></tr><tr><td>Solar panel type</td><td>—</td></tr><tr><td>Peak PV capacity</td><td>—</td></tr><tr><td>Coating CAPEX</td><td>—</td></tr><tr><td>Model pathway</td><td>—</td></tr></tbody></table>
           <div class="callout" id="recommendation">Enter project data and run the model to generate ROI outputs.</div>
         </section>
       </div>
